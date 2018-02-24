@@ -5,6 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     tools:context="com.cslcteam1.winterwonderhackapp2018v2.ui.ActivityMap">
 
     <android.support.design.widget.BottomNavigationView
@@ -18,12 +19,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/navigation" />
-
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        android:name="com.google.android.gms.maps.MapFragment"
-        android:id="@+id/map"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 
 </android.support.constraint.ConstraintLayout>

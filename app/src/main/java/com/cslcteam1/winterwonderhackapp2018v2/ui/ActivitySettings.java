@@ -1,5 +1,6 @@
 package com.cslcteam1.winterwonderhackapp2018v2.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -18,15 +19,17 @@ public class ActivitySettings extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            Intent x;
+
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_map);
+                    x = new Intent( ActivitySettings.this, ActivityMap.class);
+                    startActivity( x );
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
-                    return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+                    x = new Intent(ActivitySettings.this, ActivityList.class );
+                    startActivity( x );
                     return true;
             }
             return false;

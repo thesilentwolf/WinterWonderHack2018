@@ -1,5 +1,6 @@
 package com.cslcteam1.winterwonderhackapp2018v2.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -23,15 +24,15 @@ public class ActivityMap extends AppCompatActivity implements OnMapReadyCallback
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Intent x;
             switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_map);
-                    return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                    x = new Intent(ActivityMap.this, ActivityList.class );
+                    startActivity( x );
                     return true;
                 case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+                    x = new Intent(ActivityMap.this, ActivitySettings.class);
+                    startActivity( x );
                     return true;
             }
             return false;
@@ -47,8 +48,8 @@ public class ActivityMap extends AppCompatActivity implements OnMapReadyCallback
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        SupportMapFragment mapFragement = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragement.getMapAsync(this);
+//        SupportMapFragment mapFragement = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+//        mapFragement.getMapAsync(this);
     }
 
     @Override

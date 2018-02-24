@@ -22,14 +22,16 @@ public class ActivityList extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Intent x;
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                    x = new Intent( ActivityList.this, ActivityMap.class );
+                    startActivity( x );
                     return true;
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
+                    x = new Intent( ActivityList.this, ActivitySettings.class );
+                    startActivity( x );
                     return true;
             }
 
