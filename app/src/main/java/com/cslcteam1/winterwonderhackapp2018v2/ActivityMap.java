@@ -1,11 +1,19 @@
 package com.cslcteam1.winterwonderhackapp2018v2;
 
+import android.arch.persistence.room.Room;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.cslcteam1.winterwonderhackapp2018v2.db.DatabaseMain;
+import com.cslcteam1.winterwonderhackapp2018v2.db.EntityGeoFence;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ActivityMap extends AppCompatActivity {
 
@@ -27,6 +35,9 @@ public class ActivityMap extends AppCompatActivity {
                     mTextMessage.setText(R.string.title_notifications);
                     return true;
             }
+
+
+
             return false;
         }
     };
@@ -40,5 +51,7 @@ public class ActivityMap extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
+
+
 
 }
