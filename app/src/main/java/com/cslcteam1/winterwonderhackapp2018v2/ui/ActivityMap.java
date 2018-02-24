@@ -8,10 +8,15 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.cslcteam1.winterwonderhackapp2018v2.R;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 
-public class ActivityMap extends AppCompatActivity {
+public class ActivityMap extends AppCompatActivity implements OnMapReadyCallback{
 
     private TextView mTextMessage;
+
+    GoogleMap gMap;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -41,5 +46,13 @@ public class ActivityMap extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        SupportMapFragment mapFragement = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragement.getMapAsync(this);
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        gMap = googleMap;
     }
 }
