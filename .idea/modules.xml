@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/WinterWonderHack2018.iml" filepath="$PROJECT_DIR$/WinterWonderHack2018.iml" />
       <module fileurl="file://C:\Users\Alexander Larkin\AndroidStudioProjects\WinterWonderhackApp2018v2\WinterWonderHack2018.iml" filepath="C:\Users\Alexander Larkin\AndroidStudioProjects\WinterWonderhackApp2018v2\WinterWonderHack2018.iml" />
-      <module fileurl="file://$PROJECT_DIR$/WinterWonderhackApp2018v2.iml" filepath="$PROJECT_DIR$/WinterWonderhackApp2018v2.iml" />
       <module fileurl="file://C:\Users\Glitc\AndroidStudioProjects\WinterWonderHack2018\WinterWonderhackApp2018v2.iml" filepath="C:\Users\Glitc\AndroidStudioProjects\WinterWonderHack2018\WinterWonderhackApp2018v2.iml" />
+      <module fileurl="file://C:\Users\sttalbot\StudioProjects\WinterWonderHack2018\WinterWonderhackApp2018v2.iml" filepath="C:\Users\sttalbot\StudioProjects\WinterWonderHack2018\WinterWonderhackApp2018v2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\sttalbot\StudioProjects\WinterWonderHack2018\app\app.iml" filepath="C:\Users\sttalbot\StudioProjects\WinterWonderHack2018\app\app.iml" />
     </modules>
   </component>
 </project>
