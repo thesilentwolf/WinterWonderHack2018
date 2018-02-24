@@ -29,4 +29,5 @@ public interface DAOGeoFence {
 
     @Query("SELECT * FROM EntityGeoFence WHERE id = :id")
     public List<EntityGeoFence> queryById(String id);
+
 }
