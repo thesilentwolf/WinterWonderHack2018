@@ -15,10 +15,7 @@ import com.cslcteam1.winterwonderhackapp2018v2.R;
 public class ActivityList extends AppCompatActivity {
 
     private TextView mTextMessage;
-
-    public void init(){
-
-    }
+    private Button but;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -27,7 +24,6 @@ public class ActivityList extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_map);
                     return true;
                 case R.id.navigation_dashboard:
                     mTextMessage.setText(R.string.title_dashboard);
@@ -51,7 +47,6 @@ public class ActivityList extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        init();
     }
 
 
