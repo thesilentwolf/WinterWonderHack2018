@@ -1,4 +1,4 @@
-package com.cslcteam1.winterwonderhackapp2018v2;
+package com.cslcteam1.winterwonderhackapp2018v2.ui;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -6,6 +6,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.cslcteam1.winterwonderhackapp2018v2.R;
 
 public class ActivitySettings extends AppCompatActivity {
 

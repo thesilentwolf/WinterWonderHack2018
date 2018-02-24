@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cslcteam1.winterwonderhackapp2018v2.ActivitySettings">
+    tools:context="com.cslcteam1.winterwonderhackapp2018v2.ui.ActivitySettings">
 
     <TextView
         android:id="@+id/message"

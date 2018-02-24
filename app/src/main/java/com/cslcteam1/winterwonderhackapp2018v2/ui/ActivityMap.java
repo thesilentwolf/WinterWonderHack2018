@@ -1,9 +1,7 @@
-package com.cslcteam1.winterwonderhackapp2018v2;
+package com.cslcteam1.winterwonderhackapp2018v2.ui;
 
-import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -12,11 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.cslcteam1.winterwonderhackapp2018v2.db.DatabaseMain;
-import com.cslcteam1.winterwonderhackapp2018v2.db.EntityGeoFence;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import com.cslcteam1.winterwonderhackapp2018v2.R;
 
 public class ActivityMap extends AppCompatActivity {
 
