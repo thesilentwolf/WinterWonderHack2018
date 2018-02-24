@@ -15,19 +15,8 @@ import com.cslcteam1.winterwonderhackapp2018v2.R;
 public class ActivityList extends AppCompatActivity {
 
     private TextView mTextMessage;
-    private Button but;
 
     public void init(){
-        Button but = (Button)findViewById(R.id.button);
-
-        but.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent x = new Intent(ActivityList.this, ActivityMap.class);
-                startActivity(x);
-
-            }
-        });
 
     }
 

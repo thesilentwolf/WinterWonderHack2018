@@ -22,6 +22,7 @@ public class EntityGeoFence {
     public double lon;
     public double lat;
 
+    public ArrayList<String> permissions;
 
     @FloatRange(from = 0.0)
     public double radius;
@@ -31,5 +32,6 @@ public class EntityGeoFence {
         this.lon = lon;
         this.lat = lat;
         this.radius = radius;
+        permissions = new ArrayList<>();
     }
 }
