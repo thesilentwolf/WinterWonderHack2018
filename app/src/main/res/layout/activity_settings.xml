@@ -5,25 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cslcteam1.winterwonderhackapp2018v2.ActivityMain">
-
-    <fragment
-        android:name="com.cslcteam1.winterwonderhackapp2018v2.Locations"
-        android:id="@+id/locations"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></fragment>
-
-    <fragment
-        android:name="com.cslcteam1.winterwonderhackapp2018v2.Map"
-        android:id="@+id/map"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></fragment>
-
-    <fragment
-        android:name="com.cslcteam1.winterwonderhackapp2018v2.Settings"
-        android:id="@+id/settings"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></fragment>
+    tools:context="com.cslcteam1.winterwonderhackapp2018v2.ActivitySettings">
 
     <TextView
         android:id="@+id/message"
