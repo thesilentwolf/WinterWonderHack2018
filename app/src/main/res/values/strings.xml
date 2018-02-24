@@ -1,11 +1,14 @@
 <resources>
     <string name="app_name">Schaft-Where</string>
-    <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_locations">ActivityLocations</string>
-    <string name="title_activity_settings">ActivitySettings</string>
+
+    <string name="title_map">Map</string>
+    <string name="title_activity_locations">Locations</string>
+    <string name="title_activity_settings">Settings</string>
+
+
 </resources>
