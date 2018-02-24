@@ -29,7 +29,6 @@ public class ActivityList extends AppCompatActivity {
                     startActivity( x );
                     return true;
                 case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
                     x = new Intent( ActivityList.this, ActivitySettings.class );
                     startActivity( x );
                     return true;
