@@ -53,21 +53,12 @@ public class ActivityList extends AppCompatActivity {
                 i++;
                 TextView tv=new TextView(getApplicationContext());
                 tv.setText("Work" + i);
-                tv.setLayoutParams(new ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.FILL_PARENT,
-                        ViewGroup.LayoutParams.MATCH_PARENT));
                 lh.addView(tv);
                 Switch sw = new Switch(getApplicationContext());
                 sw.setText("");
-                sw.setLayoutParams(new ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.FILL_PARENT,
-                        ViewGroup.LayoutParams.MATCH_PARENT));
                 lh.addView(sw);
                 Button btn = new Button(getApplicationContext());
                 btn.setText("...");
-                btn.setLayoutParams(new ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.FILL_PARENT,
-                        ViewGroup.LayoutParams.MATCH_PARENT));
                 lh.addView(btn);
                 ll.addView(lh);
             }
