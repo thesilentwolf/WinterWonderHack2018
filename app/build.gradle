@@ -51,4 +51,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-maps:11.8.0'
     //GOOGLE-MAPS-END--------------------------------------------------------------------------------->
 
+    //GOOGLE-LOCATION-START------------------------------------------------------------------------------->
+    compile 'com.google.android.gms:play-services-location:11.8.0'
+    //GOOGLE-LOCATION-END--------------------------------------------------------------------------------->
 }
