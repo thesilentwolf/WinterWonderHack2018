@@ -16,7 +16,7 @@ import java.util.List;
 @Dao
 public interface DAOGeoFence {
 
-    @Insert(onConflict = OnConflictStrategy.FAIL)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insertEntityGeoFence(EntityGeoFence geofence);
 
     @Delete
