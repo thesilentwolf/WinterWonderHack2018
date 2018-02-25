@@ -27,11 +27,11 @@ public class EntityGeoFence {
     @FloatRange(from = 0.0)
     public float radius;
 
-    public EntityGeoFence(@NonNull String id, double lat, double lon, @FloatRange(from = 0.0) float radius) {
+    public EntityGeoFence(@NonNull String id, double lat, double lon, @FloatRange(from = 0.0) float radius, ArrayList<String> permissions) {
         this.id = id;
         this.lon = lon;
         this.lat = lat;
         this.radius = radius;
-        permissions = new ArrayList<>();
+        this.permissions = permissions;
     }
 }
