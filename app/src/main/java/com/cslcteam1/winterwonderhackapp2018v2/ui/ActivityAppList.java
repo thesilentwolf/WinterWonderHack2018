@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.cslcteam1.winterwonderhackapp2018v2.R;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,13 +25,27 @@ public class ActivityAppList extends ListActivity {
     private List<ApplicationInfo> applist = null;
     private ApplicationAdapter listadaptor = null;
     public static HashMap<String, String> enabledList = new HashMap<>();
+    private FusedLocationProviderClient mFLC;
     private Button save;
+    private double lon;
+    private double lat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_list);
-
+        mFLC = LocationServices.getFusedLocationProviderClient(getApplicationContext());
+        /*mFLC.getLastLocation()
+                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        // Got last known location. In some rare situations this can be null.
+                        if (location != null) {
+                            // Logic to handle location object
+                        }
+                    }
+                });
+                */
         packageManager = getPackageManager();
         save = (Button)findViewById(R.id.saveEnabled);
         save.setOnClickListener(new View.OnClickListener() {

@@ -11,13 +11,23 @@
         android:layout_centerHorizontal="true"
         android:text="Save" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Statement1" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
     <ListView
         android:id="@android:id/list"
-        android:layout_above="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-    >
-</ListView>
+        android:layout_above="@+id/button1"
+        android:layout_alignParentTop="true"></ListView>
 
 </LinearLayout>
