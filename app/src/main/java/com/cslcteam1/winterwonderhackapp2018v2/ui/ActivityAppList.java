@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.cslcteam1.winterwonderhackapp2018v2.R;
 import com.cslcteam1.winterwonderhackapp2018v2.db.DatabaseMain;
 import com.cslcteam1.winterwonderhackapp2018v2.db.EntityGeoFence;
+import com.cslcteam1.winterwonderhackapp2018v2.services.Globals;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 
@@ -58,7 +59,7 @@ public class ActivityAppList extends ListActivity {
         }
 
         final EditText et = (EditText) findViewById(R.id.nameText);
-
+        final ActivityAppList applistactivity = this;
         save = (Button)findViewById(R.id.saveEnabled);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +81,7 @@ public class ActivityAppList extends ListActivity {
                             db.geoFenceDao().insertEntityGeoFence(fence);
                         }
                     }).start();
-
+                    Globals.loadGeofences(applistactivity);
                     Intent i = new Intent(ActivityAppList.this, ActivityList.class);
                     startActivity(i);
                 }

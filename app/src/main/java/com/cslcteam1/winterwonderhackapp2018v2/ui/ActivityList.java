@@ -12,6 +12,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -74,6 +75,9 @@ public class ActivityList extends AppCompatActivity {
 
 
                            TextView tv=new TextView(getApplicationContext());
+                           tv.setTextColor(Color.BLACK);
+                           tv.setPadding(50,50,150,50);
+                           Log.i("INFO","HELLO I AM NOT HERE"+geoFence.id);
                            tv.setText(geoFence.id);
                            lh.addView(tv);
                            Switch sw = new Switch(getApplicationContext());

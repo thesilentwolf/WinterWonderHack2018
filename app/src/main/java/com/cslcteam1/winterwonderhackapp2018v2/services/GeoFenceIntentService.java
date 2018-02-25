@@ -40,14 +40,19 @@ public class GeoFenceIntentService extends IntentService {
         int geofenceTransition = geofenceTrigger.getGeofenceTransition();
         List<Geofence> triggeredGeoFences = geofenceTrigger.getTriggeringGeofences();
 
-        if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_ENTER) {
-            System.out.println("I AM ENTERING YOU NOOB");
-            NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-            notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_NONE);
-        } else if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_EXIT){
-            System.out.println("I AM EXITING YOU NOOB");
-            NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-            notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALL);
+        try{
+            System.out.println("I AM HERE FRIENDS");
+            if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_ENTER) {
+                Log.i("SETTINGS","I AM ENTERING YOU NOOB");
+                NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+                notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_NONE);
+            } else if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_EXIT){
+                Log.i("SETTINGS","I AM EXITING YOU NOOB");
+                NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+                notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALL);
+            }
+        }catch(SecurityException se){
+            Log.i("SETTINGS","I AM CATCHING");
         }
     }
 

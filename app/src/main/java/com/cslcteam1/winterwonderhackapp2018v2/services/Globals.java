@@ -3,6 +3,7 @@ package com.cslcteam1.winterwonderhackapp2018v2.services;
 import android.app.PendingIntent;
 import android.arch.persistence.room.Room;
 import android.content.Context;
+import android.util.Log;
 
 import com.cslcteam1.winterwonderhackapp2018v2.db.DatabaseMain;
 import com.cslcteam1.winterwonderhackapp2018v2.db.EntityGeoFence;
@@ -33,6 +34,7 @@ public class Globals {
             public void run() {
                 List<EntityGeoFence> entityGeoFences = db.geoFenceDao().getAll();
                 List<Geofence> geofences = new ArrayList<>();
+                Log.i("SETTINGS","HERE BOIS");
                 if(entityGeoFences.size() > 0){
                     for(EntityGeoFence entityGeoFence : entityGeoFences){
                         System.out.println("HELLO BOIS IZ LOADZING");
@@ -47,7 +49,7 @@ public class Globals {
                         System.out.println("HELLO FRIEND: "+Globals.geofenceIntent);
                         Globals.geofencingClient.addGeofences(request, Globals.geofenceIntent);
                     } catch (SecurityException se){
-
+                        Log.i("SETTINGS","CRASH AT GLOBALS");
                     }
                 }
             }
