@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
 
 
-        <service android:name=".GeofenceTransitionsIntentService"/>
+        <service android:name=".services.GeoFenceIntentService"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA_6DUZ6IlKGXPQ7qyitt6LcghwSXnXg4U"/>

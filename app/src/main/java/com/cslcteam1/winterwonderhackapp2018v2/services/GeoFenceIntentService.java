@@ -25,8 +25,10 @@ public class GeoFenceIntentService extends IntentService {
 
     public GeoFenceIntentService(String name) {
         super(name);
-        Globals.geofencingClient = LocationServices.getGeofencingClient(this);
-        loadGeofences();
+    }
+
+    public GeoFenceIntentService() {
+        super("GeoFenceIntentService");
     }
 
     @Override
@@ -36,35 +38,16 @@ public class GeoFenceIntentService extends IntentService {
         int geofenceTransition = geofenceTrigger.getGeofenceTransition();
         List<Geofence> triggeredGeoFences = geofenceTrigger.getTriggeringGeofences();
 
+        for(Geofence geofence : triggeredGeoFences){
+            
+        }
+
         if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_ENTER) {
-
+            System.out.println("I AM ENTERING YOU NOOB");
         } else if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_EXIT){
-
+            System.out.println("I AM EXITING YOU NOOB");
         }
     }
 
-    //FOR TESTING PURPOSES BLOW IT UP LATER
-    private void loadGeofences() {
-        Geofence.Builder geofenceBuilder = new Geofence.Builder();
-        geofenceBuilder.setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER | Geofence.GEOFENCE_TRANSITION_EXIT);
-
-        DatabaseMain db = Room.databaseBuilder(getApplicationContext(), DatabaseMain.class, "database-main").build();
-        List<EntityGeoFence> entityGeoFences = db.geoFenceDao().getAll();
-        List<Geofence> geofences = new ArrayList<>();
-        for(EntityGeoFence entityGeoFence : entityGeoFences){
-            System.out.println("HELLO BOIS IZ LOADZING");
-            geofences.add(geofenceBuilder.setCircularRegion(entityGeoFence.lat, entityGeoFence.lon, entityGeoFence.radius).build());
-        }
-        GeofencingRequest.Builder geofenceRequestBuilder = new GeofencingRequest.Builder();
-        geofenceRequestBuilder.setInitialTrigger(Geofence.GEOFENCE_TRANSITION_ENTER);
-        geofenceRequestBuilder.addGeofences(geofences);
-
-        GeofencingRequest request = geofenceRequestBuilder.build();
-        try{
-            Globals.geofencingClient.addGeofences(request, Globals.geofenceIntent);
-        } catch (SecurityException se){
-
-        }
-    }
 
 }
