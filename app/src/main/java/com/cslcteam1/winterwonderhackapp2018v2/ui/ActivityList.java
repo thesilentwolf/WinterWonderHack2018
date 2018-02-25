@@ -1,12 +1,16 @@
 package com.cslcteam1.winterwonderhackapp2018v2.ui;
 
+import android.Manifest;
 import android.app.PendingIntent;
 import android.arch.persistence.room.Room;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -134,6 +138,13 @@ public class ActivityList extends AppCompatActivity {
         Globals.geofenceIntent = PendingIntent.getService(this, 0, msgIntent, PendingIntent.
                 FLAG_UPDATE_CURRENT);
         Globals.loadGeofences(this);
+
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    1);
+        }
 
     }
 }

@@ -38,10 +38,6 @@ public class GeoFenceIntentService extends IntentService {
         int geofenceTransition = geofenceTrigger.getGeofenceTransition();
         List<Geofence> triggeredGeoFences = geofenceTrigger.getTriggeringGeofences();
 
-        for(Geofence geofence : triggeredGeoFences){
-            
-        }
-
         if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_ENTER) {
             System.out.println("I AM ENTERING YOU NOOB");
         } else if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_EXIT){
