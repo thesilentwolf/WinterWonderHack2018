@@ -1,5 +1,6 @@
 package com.cslcteam1.winterwonderhackapp2018v2.ui;
 
+import android.app.PendingIntent;
 import android.arch.persistence.room.Room;
 import android.content.Intent;
 import android.graphics.Color;
@@ -25,6 +26,9 @@ import android.widget.TextView;
 import com.cslcteam1.winterwonderhackapp2018v2.R;
 import com.cslcteam1.winterwonderhackapp2018v2.db.DatabaseMain;
 import com.cslcteam1.winterwonderhackapp2018v2.db.EntityGeoFence;
+import com.cslcteam1.winterwonderhackapp2018v2.services.GeoFenceIntentService;
+import com.cslcteam1.winterwonderhackapp2018v2.services.Globals;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 
@@ -125,5 +129,11 @@ public class ActivityList extends AppCompatActivity {
         loadSaved();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        Intent msgIntent = new Intent(this, GeoFenceIntentService.class);
+        Globals.geofencingClient = LocationServices.getGeofencingClient(this);
+        Globals.geofenceIntent = PendingIntent.getService(this, 0, msgIntent, PendingIntent.
+                FLAG_UPDATE_CURRENT);
+        Globals.loadGeofences(this);
+
     }
 }
