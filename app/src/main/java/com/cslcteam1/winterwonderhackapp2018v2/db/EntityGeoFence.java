@@ -4,7 +4,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.FloatRange;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
 
 import java.util.ArrayList;
 
@@ -25,9 +25,9 @@ public class EntityGeoFence {
     public ArrayList<String> permissions;
 
     @FloatRange(from = 0.0)
-    public double radius;
+    public float radius;
 
-    public EntityGeoFence(@NonNull String id, double lon, double lat, @FloatRange(from = 0.0) double radius) {
+    public EntityGeoFence(@NonNull String id, double lat, double lon, @FloatRange(from = 0.0) float radius) {
         this.id = id;
         this.lon = lon;
         this.lat = lat;
