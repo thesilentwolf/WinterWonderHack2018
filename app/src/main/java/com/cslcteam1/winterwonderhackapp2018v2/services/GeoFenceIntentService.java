@@ -1,7 +1,9 @@
 package com.cslcteam1.winterwonderhackapp2018v2.services;
 
 import android.app.IntentService;
+import android.app.NotificationManager;
 import android.arch.persistence.room.Room;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -40,8 +42,12 @@ public class GeoFenceIntentService extends IntentService {
 
         if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_ENTER) {
             System.out.println("I AM ENTERING YOU NOOB");
+            NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_NONE);
         } else if (geofenceTransition == Geofence.GEOFENCE_TRANSITION_EXIT){
             System.out.println("I AM EXITING YOU NOOB");
+            NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager.setInterruptionFilter(NotificationManager.INTERRUPTION_FILTER_ALL);
         }
     }
 
