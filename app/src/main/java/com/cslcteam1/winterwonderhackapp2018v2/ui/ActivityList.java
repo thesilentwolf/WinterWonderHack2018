@@ -1,5 +1,6 @@
 package com.cslcteam1.winterwonderhackapp2018v2.ui;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -21,6 +22,8 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.cslcteam1.winterwonderhackapp2018v2.R;
+import com.cslcteam1.winterwonderhackapp2018v2.services.GeoFenceIntentService;
+import com.cslcteam1.winterwonderhackapp2018v2.services.Globals;
 
 import java.util.ArrayList;
 
@@ -98,5 +101,14 @@ public class ActivityList extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         init();
+        spinupGeofenceService();
     }
+
+    private void spinupGeofenceService() {
+        if (Globals.geofenceIntent == null) {
+            Intent intent = new Intent(this, GeoFenceIntentService.class);
+            Globals.geofenceIntent = PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        }
+    }
+
 }

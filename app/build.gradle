@@ -53,5 +53,6 @@ dependencies {
 
     //GOOGLE-LOCATION-START------------------------------------------------------------------------------->
     compile 'com.google.android.gms:play-services-location:11.8.0'
+    compile 'com.google.android.gms:play-services-wearable:11.8.0'
     //GOOGLE-LOCATION-END--------------------------------------------------------------------------------->
 }

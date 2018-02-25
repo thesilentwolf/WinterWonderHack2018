@@ -11,11 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
+        <service android:name=".GeofenceTransitionsIntentService"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyA_6DUZ6IlKGXPQ7qyitt6LcghwSXnXg4U"/>
 
-        <service android:name=".GeofenceRegistrationService"/>
+
 
         <activity
             android:name=".ui.ActivityList"

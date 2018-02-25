@@ -18,6 +18,7 @@ import com.cslcteam1.winterwonderhackapp2018v2.db.DAOGeoFence;
 import com.cslcteam1.winterwonderhackapp2018v2.db.DatabaseMain;
 import com.cslcteam1.winterwonderhackapp2018v2.db.EntityGeoFence;
 import com.google.android.gms.location.Geofence;
+import com.google.android.gms.location.GeofencingRequest;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -63,6 +64,9 @@ public class ActivityMap extends AppCompatActivity implements OnMapReadyCallback
 
         SupportMapFragment mapFragement = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragement.getMapAsync(this);
+
+
+
     }
 
     @Override
@@ -89,13 +93,13 @@ public class ActivityMap extends AppCompatActivity implements OnMapReadyCallback
         new Thread(new Runnable() {
             @Override
             public void run() {
-                loadGeoFences();
+                loadGeoFencesMarkers();
             }
         }).start();
 
     }
 
-    private final void loadGeoFences(){
+    private final void loadGeoFencesMarkers(){
 
         DatabaseMain db = Room.databaseBuilder(getApplicationContext(), DatabaseMain.class, "database-main").build();
         final List<EntityGeoFence> listGeofence = db.geoFenceDao().getAll();
