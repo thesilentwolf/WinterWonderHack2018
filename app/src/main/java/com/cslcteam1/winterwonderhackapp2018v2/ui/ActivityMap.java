@@ -91,9 +91,7 @@ public class ActivityMap extends AppCompatActivity implements OnMapReadyCallback
         new Thread(new Runnable() {
             @Override
             public void run() {
-                createTestData();
                 loadGeoFences();
-
             }
         }).start();
 
@@ -113,19 +111,5 @@ public class ActivityMap extends AppCompatActivity implements OnMapReadyCallback
                 }
             }
         });
-    }
-
-    private final void createTestData(){
-        DatabaseMain db = Room.databaseBuilder(getApplicationContext(), DatabaseMain.class, "database-main").build();
-        EntityGeoFence geofence1 = new EntityGeoFence("first", 47.07,-88.10, 100);
-        EntityGeoFence geofence2 = new EntityGeoFence("second", 47.056,-88.30, 100);
-        EntityGeoFence geofence3 = new EntityGeoFence("third", 47.12,-88.11, 100);
-        EntityGeoFence geofence4 = new EntityGeoFence("fourth", 47.20,-88.13, 100);
-        EntityGeoFence geofence5 = new EntityGeoFence("five", 47.1,-88.25, 100);
-        db.geoFenceDao().insertEntityGeoFence(geofence1);
-        db.geoFenceDao().insertEntityGeoFence(geofence2);
-        db.geoFenceDao().insertEntityGeoFence(geofence3);
-        db.geoFenceDao().insertEntityGeoFence(geofence4);
-        db.geoFenceDao().insertEntityGeoFence(geofence5);
     }
 }
