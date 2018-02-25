@@ -7,10 +7,14 @@ import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.cslcteam1.winterwonderhackapp2018v2.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ActivityAppList extends ListActivity {
@@ -18,6 +22,8 @@ public class ActivityAppList extends ListActivity {
     private PackageManager packageManager = null;
     private List<ApplicationInfo> applist = null;
     private ApplicationAdapter listadaptor = null;
+    public static HashMap<String, String> enabledList = new HashMap<>();
+    private Button save;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +31,13 @@ public class ActivityAppList extends ListActivity {
         setContentView(R.layout.activity_app_list);
 
         packageManager = getPackageManager();
+        save = (Button)findViewById(R.id.saveEnabled);
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         new LoadApplications().execute();
     }
