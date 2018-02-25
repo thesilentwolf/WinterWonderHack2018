@@ -2,20 +2,15 @@ package com.cslcteam1.winterwonderhackapp2018v2.ui;
 
 import android.arch.persistence.room.Room;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -25,8 +20,7 @@ import android.widget.TextView;
 import com.cslcteam1.winterwonderhackapp2018v2.R;
 import com.cslcteam1.winterwonderhackapp2018v2.db.DatabaseMain;
 import com.cslcteam1.winterwonderhackapp2018v2.db.EntityGeoFence;
-import com.google.android.gms.maps.model.CircleOptions;
-import com.google.android.gms.maps.model.LatLng;
+import com.cslcteam1.winterwonderhackapp2018v2.services.NotificationService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -125,5 +119,10 @@ public class ActivityList extends AppCompatActivity {
         loadSaved();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        Intent in = new Intent(this.getApplicationContext(), NotificationService.class);
+        //in.setAction("com.cslcteam1.winterwonderhackapp2018v2.services.NotificationService");
+        startService(in);
+
     }
 }
