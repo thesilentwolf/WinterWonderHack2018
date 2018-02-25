@@ -1,7 +1,8 @@
 package com.cslcteam1.winterwonderhackapp2018v2.ui;
 
-import android.app.PendingIntent;
+import android.arch.persistence.room.Room;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -22,10 +23,13 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.cslcteam1.winterwonderhackapp2018v2.R;
-import com.cslcteam1.winterwonderhackapp2018v2.services.GeoFenceIntentService;
-import com.cslcteam1.winterwonderhackapp2018v2.services.Globals;
+import com.cslcteam1.winterwonderhackapp2018v2.db.DatabaseMain;
+import com.cslcteam1.winterwonderhackapp2018v2.db.EntityGeoFence;
+import com.google.android.gms.maps.model.CircleOptions;
+import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ActivityList extends AppCompatActivity {
 
@@ -33,37 +37,56 @@ public class ActivityList extends AppCompatActivity {
     private ListView lv;
     private ArrayList<String> strArr;
     private ArrayAdapter<String> adapter;
-    private int i = 0;
-    public void init(){
-        ScrollView scrl= (ScrollView)findViewById(R.id.scrollView);
-        final LinearLayout ll=new LinearLayout(this);
-        ll.setOrientation(LinearLayout.VERTICAL);
-        ll.setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.FILL_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT));
 
-        scrl.addView(ll);
+
+    public void loadSaved(){
+       new Thread(new Runnable() {
+           @Override
+           public void run() {
+               DatabaseMain db = Room.databaseBuilder(getApplicationContext(), DatabaseMain.class, "database-main").build();
+               final List<EntityGeoFence> listGeofence = db.geoFenceDao().getAll();
+
+               ActivityList.this.runOnUiThread(new Runnable() {
+                   @Override
+                   public void run() {
+
+                       ScrollView scrl= (ScrollView)findViewById(R.id.scrollView);
+                       LinearLayout ll=new LinearLayout(getApplicationContext());
+                       ll.setOrientation(LinearLayout.VERTICAL);
+                       ll.setLayoutParams(new ViewGroup.LayoutParams(
+                               ViewGroup.LayoutParams.FILL_PARENT,
+                               ViewGroup.LayoutParams.MATCH_PARENT));
+                       scrl.addView(ll);
+
+                       for(EntityGeoFence geoFence : listGeofence) {
+                           LinearLayout lh = new LinearLayout(getApplicationContext());
+                           lh.setLayoutParams(new ViewGroup.LayoutParams(
+                                   ViewGroup.LayoutParams.FILL_PARENT,
+                                   ViewGroup.LayoutParams.MATCH_PARENT));
+
+
+                           TextView tv=new TextView(getApplicationContext());
+                           tv.setText(geoFence.id);
+                           lh.addView(tv);
+                           Switch sw = new Switch(getApplicationContext());
+                           Button btn = new Button(getApplicationContext());
+                           btn.setText("Edit");
+                           lh.addView(btn);
+                           ll.addView(lh);
+                       }
+                   }
+               });
+           }
+       }).start();
+    }
+    public void init(){
         bt = (Button)findViewById(R.id.button2);
         bt.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                LinearLayout lh = new LinearLayout(getApplicationContext());
-                lh.setLayoutParams(new ViewGroup.LayoutParams(
-                        ViewGroup.LayoutParams.FILL_PARENT,
-                        ViewGroup.LayoutParams.MATCH_PARENT));
-
-                i++;
-                TextView tv=new TextView(getApplicationContext());
-                tv.setText("Work" + i);
-                lh.addView(tv);
-                Switch sw = new Switch(getApplicationContext());
-                sw.setText("");
-                lh.addView(sw);
-                Button btn = new Button(getApplicationContext());
-                btn.setText("...");
-                lh.addView(btn);
-                ll.addView(lh);
+                Intent x = new Intent(ActivityList.this, ActivityAppList.class);
+                startActivity(x);
             }
         });
 
@@ -98,17 +121,9 @@ public class ActivityList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+        init();
+        loadSaved();
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        init();
-        spinupGeofenceService();
     }
-
-    private void spinupGeofenceService() {
-        if (Globals.geofenceIntent == null) {
-            Intent intent = new Intent(this, GeoFenceIntentService.class);
-            Globals.geofenceIntent = PendingIntent.getService(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        }
-    }
-
 }
